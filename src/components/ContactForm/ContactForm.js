@@ -16,9 +16,7 @@ export const ContactForm = ({ contacts, onSubmit }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const hasNameInContacts = contacts.find(
-      (contact) =>
-        contact.name.toLowerCase() ===
-        event.target.elements.name.value.toLowerCase()
+      (contact) => contact.name.toLowerCase() === name.toLowerCase()
     );
     if (hasNameInContacts) {
       alert(`${event.target.elements.name.value} is already in contacts`);

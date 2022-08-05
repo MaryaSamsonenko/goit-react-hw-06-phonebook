@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { ContactForm } from "../ContactForm/ContactForm";
 import { Filter } from "../Filter/Filter";
 import { ContactList } from "../ContactList/ContactList";
@@ -7,7 +7,6 @@ import { Container } from "./App.styled";
 export const App = () => {
   const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState("");
-  const isMounted = useRef(false);
 
   useEffect(() => {
     const contacts = window.localStorage.getItem("contacts");
@@ -18,9 +17,7 @@ export const App = () => {
   }, []);
 
   useEffect(() => {
-    if (isMounted) {
-      window.localStorage.setItem("contacts", JSON.stringify(contacts));
-    }
+    window.localStorage.setItem("contacts", JSON.stringify(contacts));
   }, [contacts]);
 
   const onSubmit = (newContact) => {
