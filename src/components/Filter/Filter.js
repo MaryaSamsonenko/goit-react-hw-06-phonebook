@@ -1,7 +1,9 @@
-import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import { setFilter } from "../../redux/filterSlice";
 import { SearchWrapper, Label, Input } from "../Filter/Filter.styled";
 
-export const Filter = ({ onChange }) => {
+export const Filter = () => {
+  const dispatch = useDispatch();
   return (
     <SearchWrapper>
       <Label htmlFor="name">Find contacts by name </Label>
@@ -11,13 +13,9 @@ export const Filter = ({ onChange }) => {
           type="text"
           name="name"
           placeholder="Search name"
-          onChange={({ target: { value } }) => onChange(value)}
+          onChange={({ target: { value } }) => dispatch(setFilter(value))}
         />
       </div>
     </SearchWrapper>
   );
-};
-
-Filter.propType = {
-  onChange: PropTypes.func.isRequired,
 };
