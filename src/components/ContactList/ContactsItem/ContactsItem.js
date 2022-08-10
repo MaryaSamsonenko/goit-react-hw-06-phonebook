@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import { remove } from "../../redux/contactsSlice";
+import { removeContact } from "../../../redux/contacts";
 import { Item, Description, Button } from "./ContactsItem.styled";
 
 export const ContactItem = ({ contact: { id, name, number } }) => {
@@ -8,7 +8,7 @@ export const ContactItem = ({ contact: { id, name, number } }) => {
   return (
     <Item>
       <Description>{name}:</Description> <Description>{number}</Description>
-      <Button type="button" onClick={() => dispatch(remove(id))}>
+      <Button type="button" onClick={() => dispatch(removeContact(id))}>
         Delete
       </Button>
     </Item>

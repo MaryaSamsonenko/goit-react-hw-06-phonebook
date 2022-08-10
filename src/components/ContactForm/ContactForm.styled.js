@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { Form, Field } from "formik";
 
-export const Form = styled.form`
+export const FormContact = styled(Form)`
   text-align: center;
   margin: 0 auto;
   margin-bottom: 24px;
@@ -11,7 +12,7 @@ export const Form = styled.form`
 export const Label = styled.label`
   color: grey;
 `;
-export const Input = styled.input`
+export const Input = styled(Field)`
   border: none;
   outline: none;
   border-radius: 4px;
